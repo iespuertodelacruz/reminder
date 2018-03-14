@@ -23,7 +23,10 @@ import datetime
 def set_badge(url, target, size, left, top, verbose=False):
 	filename = "badge_" + datetime.datetime.now().strftime("%s") + ".png"
 	path = os.path.join(config.BADGES_PATH, filename)
-	os.system("curl --silent -o {} {}".format(path, url))
+	if os.path.exists(url):
+		os.system("cp {} {}".format(url, path))
+	else:
+		os.system("curl --silent -o {} {}".format(path, url))
 	os.system("mogrify -resize x{} {}".format(size, path))
 	os.system('sed -i -E "s/badge_[0-9]+\.png/{}/" {}'.format(filename, config.HEADER_PATH))
 	if target is None:
