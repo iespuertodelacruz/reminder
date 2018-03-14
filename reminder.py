@@ -32,7 +32,7 @@ def clean_badges():
 
 def remove_badges():
 	clean_badges()
-	set_badge(config.TRANSPARENT_BADGE_URL)
+	set_badge(config.TRANSPARENT_BADGE_URL, None)
 
 
 if __name__ == "__main__":
