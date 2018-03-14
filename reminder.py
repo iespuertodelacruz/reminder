@@ -18,6 +18,7 @@ import config
 import glob
 import os
 import datetime
+import re
 
 
 def set_badge(url, target, size, left, top, verbose=False):
@@ -61,9 +62,9 @@ if __name__ == "__main__":
 		set_badge(
 			arguments["<url>"],
 			arguments["--target"],
-			arguments["--size"],
-			arguments["--left"],
-			arguments["--top"],
+			re.sub(r" *px *", "", arguments["--size"]),
+			re.sub(r" *px *", "", arguments["--left"]),
+			re.sub(r" *px *", "", arguments["--top"]),
 			arguments["--verbose"]
 		)
 	elif arguments["remove"]:
