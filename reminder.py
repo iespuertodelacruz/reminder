@@ -6,11 +6,12 @@ Usage:
 	reminder.py remove
 
 Options:
+    <url>             URL of the image to display as a badget on header of website.
     --target=<url>    Target URL of the badget.
     --size=<px>       Height size of the badget [default: 300].
     --left=<px>       Relative left position of the badget [default: 150].
     --top=<px>        Relative top position of the badget [default: 0].
-	--verbose         Verbose mode.
+    --verbose         Verbose mode.
 """
 from docopt import docopt
 import config
